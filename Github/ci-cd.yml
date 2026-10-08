@@ -1,0 +1,48 @@
+# The name shown in the "Actions" tab on GitHub
+name: Solar System CI/CD
+
+
+# on lists the GitHub events that start this workflow.
+on:
+ # Run when someone pushes code to the main branch
+ push:
+   branches: [main]
+ # Run when someone opens or updates a pull request targeting main
+ pull_request:
+   branches: [main]
+ # Adds a "Run workflow" button so we can start it by hand
+ workflow_dispatch:
+
+
+# jobs contains the separate pieces of work GitHub will run.
+jobs:
+ # JOB 1: test (checks that our code works)
+ test:
+   # runs-on chooses the computer that runs these steps.
+   runs-on: ubuntu-latest
+   # permissions limits what this job is allowed to do (least privilege)
+   permissions:
+     # read-only access to the repo's code, nothing more
+     contents: read
+   steps:
+     # steps are the ordered tasks in this job.
+     - name: Check out the repository
+       # uses runs a published action maintained for GitHub Actions.
+       # This one downloads our code onto the runner (the runner starts empty)
+       uses: actions/checkout@v7.0.1
+     - name: Set up Node.js 26
+       # This action installs Node.js on the runner
+       uses: actions/setup-node@v7.0.0
+       # with passes settings (inputs) into the action above
+       with:
+         # Which version of Node.js to install
+         node-version: 26
+         # Saves downloaded npm packages so future runs are faster
+         cache: npm
+     - name: Install dependencies
+       # run executes a shell command on the runner.
+       # npm ci installs the exact package versions from package-lock.json
+       run: npm ci
+     - name: Run tests
+       # Runs the test script defined in package.json
+       run: npm test
