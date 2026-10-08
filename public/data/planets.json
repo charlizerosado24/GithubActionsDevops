@@ -1,0 +1,10 @@
+[
+  { "id": "mercury", "name": "Mercury", "color": "#a8a29e", "description": "Mercury is the smallest planet and the closest planet to the Sun." },
+  { "id": "venus", "name": "Venus", "color": "#e7b873", "description": "Venus has a dense, hot atmosphere and is the second planet from the Sun." },
+  { "id": "earth", "name": "Earth", "color": "#48a9e6", "description": "Earth is a rocky planet with liquid water on its surface and is our home." },
+  { "id": "mars", "name": "Mars", "color": "#d96b4b", "description": "Mars is a rocky planet often called the Red Planet." },
+  { "id": "jupiter", "name": "Jupiter", "color": "#d6a77a", "description": "Jupiter is the largest planet and a gas giant." },
+  { "id": "saturn", "name": "Saturn", "color": "#e7cf91", "description": "Saturn is a gas giant known for its prominent rings." },
+  { "id": "uranus", "name": "Uranus", "color": "#8bd3d1", "description": "Uranus is an ice giant that rotates on its side compared with most planets." },
+  { "id": "neptune", "name": "Neptune", "color": "#5276d8", "description": "Neptune is a distant ice giant and the eighth planet from the Sun." }
+]

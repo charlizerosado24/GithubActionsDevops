@@ -1,0 +1,84 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #080d1c;
+  color: #f4f6ff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --muted: #aab4d0;
+  --line: rgba(190, 205, 255, 0.16);
+}
+
+* { box-sizing: border-box; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(ellipse at 50% 0%, #18274a 0, #0b1226 38%, #080d1c 78%);
+}
+.page-shell { width: min(1080px, 100%); margin: 0 auto; padding: 54px 24px 40px; flex: 1; }
+.page-header { text-align: center; margin-bottom: 42px; }
+.eyebrow { color: #9db6ff; font-size: .76rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin: 0 0 10px; }
+h1 { font-size: clamp(2.2rem, 6vw, 4rem); letter-spacing: -.045em; line-height: 1.05; margin: 0; }
+.subtitle { color: var(--muted); font-size: 1.1rem; margin: 14px 0 0; }
+.pipeline-challenge { width: fit-content; max-width: 100%; margin: 22px auto 0; padding: 10px 15px; border: 1px solid rgba(157, 182, 255, .3); border-radius: 12px; background: rgba(110, 139, 224, .1); color: #cbd5f4; font-size: .88rem; line-height: 1.6; }
+.pipeline-challenge span { color: #b4c6ff; font-weight: 750; margin-right: 5px; }
+.pipeline-challenge code { color: #fff; font-size: .85em; }
+.solar-system { position: relative; padding: 34px 18px 24px; border: 1px solid var(--line); border-radius: 22px; background: rgba(8, 14, 31, .58); overflow: hidden; }
+.solar-system::before, .solar-system::after { content: ""; position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #fff; box-shadow: 120px 35px #879ac8, 280px 9px #fff, 510px 65px #a9b9ed, 740px 22px #fff, 860px 97px #a9b9ed; opacity: .55; pointer-events: none; }
+.solar-system::before { top: 18px; left: 10%; }
+.solar-system::after { right: 9%; bottom: 70px; transform: scale(.8); }
+.sun { width: 58px; height: 58px; margin: 0 auto 30px; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff6b6, #ffb938 56%, #f47724); box-shadow: 0 0 28px rgba(255, 177, 54, .62); color: #542d0c; font-size: .7rem; font-weight: 800; }
+.planet-list { position: relative; display: flex; align-items: end; justify-content: space-around; gap: 8px; overflow-x: auto; padding: 12px 4px 18px; scrollbar-color: #526186 #101831; }
+.planet-button { position: relative; z-index: 1; min-width: 76px; padding: 10px 8px 8px; display: flex; flex-direction: column; align-items: center; gap: 12px; border: 1px solid transparent; border-radius: 14px; color: #e7ebfa; background: transparent; cursor: pointer; font: inherit; }
+.planet-button:hover { background: rgba(145, 169, 239, .09); }
+.planet-button:focus-visible, .reset-button:focus-visible { outline: 3px solid #b7c7ff; outline-offset: 3px; }
+.planet-button[aria-pressed="true"] { border-color: #8ea7ff; background: rgba(109, 139, 236, .16); box-shadow: 0 0 18px rgba(102, 132, 237, .16); }
+.planet { width: var(--planet-size); height: var(--planet-size); flex: none; border-radius: 50%; background: var(--planet-color); box-shadow: inset -9px -8px 12px rgba(0, 0, 0, .28), 0 0 14px color-mix(in srgb, var(--planet-color) 45%, transparent); }
+.planet-button[data-planet="saturn"] .planet { position: relative; }
+.planet-button[data-planet="saturn"] .planet::after { content: ""; position: absolute; width: 150%; height: 35%; left: -25%; top: 32%; border: 2px solid rgba(244, 220, 160, .8); border-radius: 50%; transform: rotate(-22deg); }
+.planet-label { font-size: .82rem; }
+.scale-note { color: var(--muted); text-align: center; font-size: .78rem; margin: 10px 0 0; }
+.details-panel { margin-top: 22px; display: flex; justify-content: space-between; align-items: center; gap: 24px; border: 1px solid var(--line); border-radius: 18px; padding: 24px 26px; background: rgba(18, 27, 52, .74); }
+.details-copy h2 { font-size: 1.65rem; margin: 0 0 7px; }
+.details-copy p:last-child { color: #c6cee2; margin: 0; line-height: 1.6; }
+.reset-button { flex: none; border: 1px solid #94aaf0; border-radius: 999px; background: #21345f; color: #fff; padding: 11px 17px; font: inherit; font-weight: 650; cursor: pointer; }
+.reset-button:hover { background: #2c447a; }
+footer { padding: 20px 16px 26px; color: #8995b3; text-align: center; font-size: .82rem; }
+.error-message { color: #ffb2a8; text-align: center; }
+.mission-panel { margin-top: 22px; padding: 24px 26px; border: 1px solid var(--line); border-radius: 18px; background: rgba(18, 27, 52, .74); }
+.mission-heading-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.mission-heading-row h2 { margin: 0; font-size: 1.5rem; }
+.mission-intro { margin: 7px 0 0; color: #c6cee2; line-height: 1.5; }
+.text-button { border: 1px solid var(--line); border-radius: 999px; background: transparent; color: #d5def8; padding: 8px 13px; font: inherit; cursor: pointer; }
+.text-button:hover { background: rgba(145, 169, 239, .1); }
+.mission-form { display: grid; grid-template-columns: auto minmax(120px, 1fr) auto minmax(160px, 1.4fr) auto; align-items: center; gap: 10px; margin-top: 22px; }
+.mission-form label { color: #d5def8; font-size: .88rem; }
+.mission-form label span { color: var(--muted); font-size: .8rem; }
+.mission-form select, .mission-form input { min-width: 0; border: 1px solid rgba(190, 205, 255, .25); border-radius: 9px; background: #0c142b; color: #f4f6ff; padding: 10px 11px; font: inherit; }
+.mission-form select:focus-visible, .mission-form input:focus-visible, .text-button:focus-visible, .add-button:focus-visible { outline: 3px solid #b7c7ff; outline-offset: 2px; }
+.add-button { border: 1px solid #94aaf0; border-radius: 9px; background: #21345f; color: white; padding: 10px 13px; font: inherit; font-weight: 650; cursor: pointer; }
+.add-button:hover { background: #2c447a; }
+.mission-status { min-height: 1.4em; color: #aebce2; font-size: .88rem; margin: 18px 0 0; }
+.mission-list { display: grid; gap: 8px; list-style: none; padding: 0; margin: 10px 0 0; }
+.mission-entry { display: flex; justify-content: space-between; align-items: center; gap: 14px; border: 1px solid var(--line); border-radius: 10px; padding: 11px 13px; color: #e6eafb; }
+.mission-entry strong { color: #b8c8ff; }
+.mission-entry-note { color: #bdc7df; margin-left: 8px; }
+.remove-mission { flex: none; border: 0; background: transparent; color: #c4cce0; font: inherit; cursor: pointer; padding: 4px 6px; }
+.remove-mission:hover { color: #ffb2a8; }
+.local-only-note { margin: 18px 0 0; color: #8995b3; font-size: .8rem; line-height: 1.5; }
+@media (max-width: 650px) {
+  .page-shell { padding: 38px 16px 28px; }
+  .page-header { margin-bottom: 30px; }
+  .pipeline-challenge { margin-top: 18px; }
+  .solar-system { padding-inline: 12px; }
+  .planet-list { justify-content: flex-start; gap: 10px; }
+  .planet-button { min-width: 70px; }
+  .details-panel { align-items: flex-start; flex-direction: column; padding: 21px; gap: 18px; }
+  .mission-panel { padding: 21px; }
+  .mission-form { grid-template-columns: 1fr; align-items: stretch; gap: 8px; }
+  .mission-form label:not(:first-child) { margin-top: 8px; }
+  .mission-entry { align-items: flex-start; }
+  .mission-entry-note { display: block; margin: 4px 0 0; }
+}

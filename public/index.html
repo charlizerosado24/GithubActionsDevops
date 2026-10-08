@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d1c">
+  <title>Solar System Explorer</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <p class="eyebrow">A tiny tour of our neighborhood</p>
+      <h1>Solar System Explorer</h1>
+      <p class="subtitle">Explore the planets, one click at a time.</p>
+      <p class="pipeline-challenge"><span>Pipeline demo</span> Change this message in <code>public/index.html</code>, then commit and push it to <code>main</code>.</p>
+    </header>
+
+    <section class="solar-system" aria-label="Choose a planet">
+      <div class="sun" aria-label="The Sun" role="img"><span>Sun</span></div>
+      <div class="planet-list" id="planet-list" aria-live="polite"></div>
+      <p class="scale-note">Illustration—not to scale.</p>
+    </section>
+
+    <section class="details-panel" aria-labelledby="planet-name">
+      <div class="details-copy">
+        <p class="eyebrow">Selected planet</p>
+        <h2 id="planet-name">Loading…</h2>
+        <p id="planet-description">Planet details will appear here.</p>
+      </div>
+      <button class="reset-button" id="reset-button" type="button">Reset to Earth</button>
+    </section>
+
+    <section class="mission-panel" aria-labelledby="mission-heading">
+      <div class="mission-heading-row">
+        <div>
+          <p class="eyebrow">Your browser only</p>
+          <h2 id="mission-heading">Mission Log</h2>
+          <p class="mission-intro">Add planets to your visit list. Your entries stay in this browser.</p>
+        </div>
+        <button class="text-button" id="clear-missions" type="button">Clear log</button>
+      </div>
+      <form class="mission-form" id="mission-form">
+        <label for="mission-planet">Planet</label>
+        <select id="mission-planet" name="planet" required>
+          <option value="">Choose a planet</option>
+        </select>
+        <label for="mission-note">Mission note <span>(optional)</span></label>
+        <input id="mission-note" name="note" type="text" maxlength="80" placeholder="What would you explore?">
+        <button class="add-button" type="submit">Add to mission log</button>
+      </form>
+      <p class="mission-status" id="mission-status" role="status" aria-live="polite">No planets added yet.</p>
+      <ul class="mission-list" id="mission-list" aria-label="Saved missions"></ul>
+      <p class="local-only-note">These browser entries are not sent to GitHub and do not start GitHub Actions. To publish a website change, edit a project file and push it to your repository.</p>
+    </section>
+  </main>
+  <footer>STJ ACM Github Actions + DevOPS Workshop.</footer>
+</body>
+</html>
